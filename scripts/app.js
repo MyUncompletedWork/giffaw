@@ -3,6 +3,7 @@ var endPoint= "http://api.giphy.com/v1/gifs/search" ;
 $(document).on("ready", function(){
 
   $("form").on("submit", function(event){
+    $(".gif-gallery").text(null)
     event.preventDefault();
     $.ajax({
     method: 'GET',
@@ -10,6 +11,7 @@ $(document).on("ready", function(){
     data:$("form").serialize(),
     dataType: 'json',
     success: onSuccess,
+    error:onError
   })}
 
 )
